@@ -29,7 +29,11 @@ public class EncapsulateTheData {
 	}
 
 	void setitemsReceived(int itemsReceived) {
-		this.itemsReceived = itemsReceived;
+		if (itemsReceived >= 0) {
+			this.itemsReceived = itemsReceived;
+		} else {
+			this.itemsReceived = 0;
+		}
 	}
 
 	float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
@@ -39,7 +43,12 @@ public class EncapsulateTheData {
 	}
 
 	void setdegreesTurned(float degreesTurned) {
-		this.degreesTurned = degreesTurned;
+		if (degreesTurned > 0 && degreesTurned < 36) {
+			this.degreesTurned = degreesTurned;
+		} else {
+			this.degreesTurned = 0;
+		}
+
 	}
 
 	String nomenclature = " "; // must not be set to a blank string. Blank Strings get set to a space
@@ -49,7 +58,12 @@ public class EncapsulateTheData {
 	}
 
 	void setnomenclature(String nomenclature) {
-		this.nomenclature = nomenclature;
+		if (!nomenclature.isEmpty()) {
+			this.nomenclature = nomenclature;
+		} else {
+			this.nomenclature = " ";
+		}
+
 	}
 
 	Object memberObj; // must not be a String. If it is a String, set it equal to a new Object();
@@ -59,7 +73,12 @@ public class EncapsulateTheData {
 	}
 
 	void setmemberObj(Object memberObj) {
-		this.memberObj = memberObj;
+		if (!(memberObj instanceof String)) {
+			this.memberObj = memberObj;
+		}	else {
+			this.memberObj=new Object();
+		}
+		
 	}
 
 	public static void main(String[] args) {
